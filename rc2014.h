@@ -2,9 +2,7 @@
 #define _RC2014_H_
 
 // UART Routines
-extern char __LIB__ __FASTCALL__ rc2014_uart_rx_ready();
 extern char __LIB__ __FASTCALL__ rc2014_uart_rx();
-extern char __LIB__ __FASTCALL__ rc2014_uart_tx_ready();
 extern void __LIB__ __FASTCALL__ rc2014_uart_tx(char c);
 
 // Print Routines

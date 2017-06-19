@@ -11,11 +11,24 @@ MODULE rc2014
 SECTION code_user
 
 
+; Check the UART RX buffer.
+; Returns the status in L.
+public rc2014_uart_rx_ready
+rc2014_uart_rx_ready:
+            ld h, 0
+            ld l, 0
+            rst $18
+            ret z
+            ld l, 1
+            ret
+
+
 ; Read a character from the UART.
-; Returns the received character in HL.
+; Returns the received character in L.
 public rc2014_uart_rx
 rc2014_uart_rx:
             rst $10
+            ld h, 0
             ld l, a
             ret
 

@@ -37,13 +37,13 @@ void rc2014_ansi_show_cursor(void) {
 void rc2014_ansi_move_cursor(unsigned int row, unsigned int col) {
   unsigned char cmd[9];
 
-  sprintf(cmd, "%i;%iH", row, col);
+  sprintf(cmd, "%d;%dH", row, col);
   rc2014_ansi_cmd(cmd);
 }
 
 void rc2014_ansi_color(unsigned int col) {
   unsigned char cmd[4];
 
-  sprintf(cmd, "%im", col);
+  sprintf(cmd, "%dm", col);
   rc2014_ansi_cmd(cmd);
 }

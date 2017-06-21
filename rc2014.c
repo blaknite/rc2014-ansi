@@ -5,8 +5,8 @@
 
 // Print Routines
 void rc2014_print(unsigned char *str) {
-  static unsigned int i;
-  static unsigned int len;
+  unsigned int i;
+  unsigned int len;
 
   len = strlen(str);
 
@@ -35,14 +35,14 @@ void rc2014_ansi_show_cursor(void) {
 }
 
 void rc2014_ansi_move_cursor(unsigned int row, unsigned int col) {
-  static unsigned char cmd[9];
+  unsigned char cmd[9];
 
   sprintf(cmd, "%i;%iH", row, col);
   rc2014_ansi_cmd(cmd);
 }
 
 void rc2014_ansi_color(unsigned int col) {
-  static unsigned char cmd[4];
+  unsigned char cmd[4];
 
   sprintf(cmd, "%im", col);
   rc2014_ansi_cmd(cmd);

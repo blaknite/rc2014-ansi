@@ -5,8 +5,10 @@
 
 // Print Routines
 void rc2014_print(unsigned char *str) {
-  unsigned int i;
-  unsigned int len = strlen(str);
+  static unsigned int i;
+  static unsigned int len;
+
+  len = strlen(str);
 
   for ( i = 0; i < len; i++ ) {
     rc2014_uart_tx(str[i]);
@@ -33,13 +35,15 @@ void rc2014_ansi_show_cursor(void) {
 }
 
 void rc2014_ansi_move_cursor(unsigned int row, unsigned int col) {
-  unsigned char cmd[9];
+  static unsigned char cmd[9];
+
   sprintf(cmd, "%i;%iH", row, col);
   rc2014_ansi_cmd(cmd);
 }
 
 void rc2014_ansi_color(unsigned int col) {
-  unsigned char cmd[4];
+  static unsigned char cmd[4];
+
   sprintf(cmd, "%im", col);
   rc2014_ansi_cmd(cmd);
 }

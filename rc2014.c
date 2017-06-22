@@ -1,17 +1,14 @@
 #include <stdio.h>
-#include <string.h>
 
 #include "rc2014.h"
 
 // Print Routines
 void rc2014_print(unsigned char *str) {
-  unsigned int i;
-  unsigned int len;
+  unsigned int i = 0;
 
-  len = strlen(str);
-
-  for ( i = 0; i < len; i++ ) {
+  while ( str[i] ) {
     rc2014_uart_tx(str[i]);
+    i++;
   }
 }
 

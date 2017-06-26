@@ -1,21 +1,11 @@
 #include <stdio.h>
 
-#include "rc2014.h"
+#include "rc2014_uart.h"
+#include "rc2014_ansi.h"
 
-// Print Routines
-void rc2014_print(unsigned char *str) {
-  unsigned int i = 0;
-
-  while ( str[i] ) {
-    rc2014_uart_tx(str[i]);
-    i++;
-  }
-}
-
-// ANSI Terminal Routines
 void rc2014_ansi_cmd(unsigned char *cmd) {
-  rc2014_uart_tx(0x1B);
-  rc2014_print("[");
+  rc2014_tx(0x1B);
+  rc2014_tx('[');
   rc2014_print(cmd);
 }
 
